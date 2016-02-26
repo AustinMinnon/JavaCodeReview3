@@ -4,5 +4,11 @@ import java.util.Arrays;
 
 public class StylistTest {
 
-  
+  @Rule
+  public DatabaseRule database = new DatabaseRule();
+
+  @Test
+  public void all_emptyInitially() {
+    assertEquals(Stylist.all().size(), 0);
+  }
 }
