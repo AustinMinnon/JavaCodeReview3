@@ -32,4 +32,14 @@ public class ClientTest {
     Client savedClient = Client.all().get(0);
     assertEquals(myClient.getId(), savedClient.getId());
   }
+
+  @Test
+  public void find_findsClientInDatabase_true() {
+    Client myClient = new Client("Carl", 3);
+    myClient.save();
+    Client savedClient = Client.find(myClient.getId());
+    assertTrue(myClient.equals(savedClient));
+  }
+
+
 }
