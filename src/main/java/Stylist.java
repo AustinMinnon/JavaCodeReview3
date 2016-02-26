@@ -44,6 +44,15 @@ public class Stylist {
     }
   }
 
+  public static void deleteStylist(int id) {
+    String sql = "DELETE FROM Stylists WHERE id=:id";
+    try(Connection con = DB.sql2o.open()) {
+      con.createQuery(sql)
+      .addParameter("id", id)
+      .executeUpdate();
+    }
+  }
+  
   public static Stylist find(int id) {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM Stylists WHERE id=:id";
@@ -54,14 +63,6 @@ public class Stylist {
     }
   }
 
-  public static void deleteStylist(int id) {
-    String sql = "DELETE FROM Stylists WHERE id=:id";
-    try(Connection con = DB.sql2o.open()) {
-      con.createQuery(sql)
-      .addParameter("id", id)
-      .executeUpdate();
-    }
-  }
 
   public List<Client> getClients() {
     try(Connection con = DB.sql2o.open()) {

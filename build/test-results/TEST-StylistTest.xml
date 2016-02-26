@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="StylistTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2016-02-26T19:24:22" hostname="epicodus-55.local" time="0.068">
+<testsuite name="StylistTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2016-02-26T22:02:46" hostname="epicodus-55.local" time="0.06">
   <properties/>
   <testcase name="find_findStylistInDatabase_true" classname="StylistTest" time="0.014"/>
   <testcase name="save_savesIntoDatabase_true" classname="StylistTest" time="0.013"/>
-  <testcase name="all_emptyInitially" classname="StylistTest" time="0.01"/>
-  <testcase name="getClients_RetrievesAllClientsFromDatabase_clients" classname="StylistTest" time="0.027"/>
+  <testcase name="all_emptyInitially" classname="StylistTest" time="0.007"/>
+  <testcase name="getClients_RetrievesAllClientsFromDatabase_clients" classname="StylistTest" time="0.021"/>
   <testcase name="equals_returnTrueIfStylistsAreEqual" classname="StylistTest" time="0.004"/>
-  <system-out><![CDATA[46
-46
-46
-46
-46
-46
+  <system-out><![CDATA[53
+53
+53
+53
+53
+53
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
