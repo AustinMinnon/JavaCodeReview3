@@ -18,4 +18,18 @@ public class AppTest extends FluentTest {
       return webDriver;
   }
 
+  @Rule
+  public DatabaseRule database = new DatabaseRule();
+
+
+  @ClassRule
+  public static ServerRule server = new ServerRule();
+
+  @Test
+  public void stylistIsCreatedTest() {
+    goTo("http://localhost:4567/");
+    fill("#stylistName").with("Stylist 1");
+    submit(".btn-primary");
+    assertThat(pageSource()).contains("Stylist 1");
+  }
 }
