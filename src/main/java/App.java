@@ -10,7 +10,8 @@ public class App {
     staticFileLocation("/public");
     String layout = "templates/layout.vtl";
 
-    get("/", (request, response) -> {
+
+  get("/", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       model.put("stylists", Stylist.all());
       model.put("template", "templates/index.vtl");
@@ -53,6 +54,15 @@ public class App {
     }, new VelocityTemplateEngine());
 
     post("/delete/stylist/:id", (request, response) -> {
+      HashMap<String, Object> model = new HashMap<String, Object>();
+      int id = Integer.parseInt(request.params(":id"));
+      Stylist.deleteStylist(id);
+      model.put("stylists", Stylist.all());
+      model.put("template", "templates/index.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/delete/client/:id", (request, response) -> {
       HashMap<String, Object> model = new HashMap<String, Object>();
       int id = Integer.parseInt(request.params(":id"));
       Client.delete(id);

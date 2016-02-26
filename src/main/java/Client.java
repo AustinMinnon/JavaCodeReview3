@@ -7,7 +7,7 @@ public class Client {
   private String name;
 
   public int getId() {
-      return id;
+    return id;
   }
 
   public String getName() {
@@ -36,6 +36,7 @@ public class Client {
              this.getStylistId() == newClient.getStylistId();
     }
   }
+
   public static List<Client> all() {
     String sql = "SELECT id, name, stylistId FROM clients";
     try(Connection con = DB.sql2o.open()) {
@@ -54,7 +55,27 @@ public class Client {
     }
   }
 
-  public static void delete(int id) {
+    public static Client find (int id) {
+      try(Connection con = DB.sql2o.open()) {
+        String sql = "SELECT * FROM clients WHERE id=:id";
+        Client client = con.createQuery(sql)
+          .addParameter("id", id)
+          .executeAndFetchFirst(Client.class);
+          return client;
+      }
+    }
+
+    public void update(String description) {
+      try(Connection con = DB.sql2o.open()) {
+        String sql = "UPDATE clients SET name = :name WHERE id=:id";
+        con.createQuery(sql)
+          .addParameter("name", name)
+          .addParameter("id", id)
+          .executeUpdate();
+      }
+    }
+
+    public static void delete(int id) {
       String sql = "DELETE FROM clients WHERE id=:id";
       try(Connection con = DB.sql2o.open()) {
         con.createQuery(sql)
@@ -62,23 +83,4 @@ public class Client {
           .executeUpdate();
       }
     }
-
-  public static Client find (int id) {
-    try(Connection con = DB.sql2o.open()) {
-      String sql = "SELECT * FROM clients WHERE id=:id";
-      Client client = con.createQuery(sql)
-        .addParameter("id", id)
-        .executeAndFetchFirst(Client.class);
-        return client;
-    }
   }
-
-  public static void delete(int id) {
-    String sql = "DELETE FROM clients WHERE id=:id";
-    try(Connection con = DB.sql2o.open()) {
-      con.createQuery(sql)
-        .addParameter("id", id)
-        .executeUpdate();
-    }
-  }
-}

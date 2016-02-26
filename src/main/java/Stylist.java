@@ -31,8 +31,8 @@ public class Stylist {
     } else {
       Stylist newStylist = (Stylist) otherStylist;
       return this.getName().equals(newStylist.getName());
+      }
     }
-  }
 
   public void save() {
     try(Connection con = DB.sql2o.open()) {
@@ -52,7 +52,7 @@ public class Stylist {
       .executeUpdate();
     }
   }
-  
+
   public static Stylist find(int id) {
     try(Connection con = DB.sql2o.open()) {
       String sql = "SELECT * FROM Stylists WHERE id=:id";
@@ -62,7 +62,6 @@ public class Stylist {
         return Stylist;
     }
   }
-
 
   public List<Client> getClients() {
     try(Connection con = DB.sql2o.open()) {
