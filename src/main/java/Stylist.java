@@ -43,4 +43,14 @@ public class Stylist {
         .getKey();
     }
   }
+
+  public static Stylist find(int id) {
+    try(Connection con = DB.sql2o.open()) {
+      String sql = "SELECT * FROM Stylists WHERE id=:id";
+      Stylist Stylist = con.createQuery(sql)
+        .addParameter("id", id)
+        .executeAndFetchFirst(Stylist.class);
+        return Stylist;
+    }
+  }
 }
