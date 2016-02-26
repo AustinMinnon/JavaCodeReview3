@@ -17,4 +17,19 @@ public class ClientTest {
     Client secondClient = new Client("Jerry",1);
     assertTrue(firstClient.equals(secondClient));
   }
+
+  @Test
+  public void save_returnsTrueIfClientExists_true() {
+    Client myClient = new Client("Jamal", 1);
+    myClient.save();
+    assertTrue(Client.all().get(0).equals(myClient));
+  }
+
+  @Test
+  public void save_assignsIdToClientObject() {
+    Client myClient = new Client("Carl", 1);
+    myClient.save();
+    Client savedClient = Client.all().get(0);
+    assertEquals(myClient.getId(), savedClient.getId());
+  }
 }
