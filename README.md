@@ -35,7 +35,7 @@ _No known bugs_
 
 ## Technologies Used
 
-_Java, Spark, Junit, Velocity, Fluentlenium, Bootstrap_
+_Java, Spark, Junit, Velocity, Fluentlenium, Postgres, Bootstrap, _
 
 ### License
 
