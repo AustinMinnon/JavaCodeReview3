@@ -1,0 +1,23 @@
+a{
+  text-align: center;
+  color: lightblue;
+  font-size: 26px;
+}
+
+form {
+  text-align: center;
+  color: white;
+}
+
+h1{
+  color: white;
+}
+
+h4{
+  font-size: 18px;
+}
+
+.container{
+  text-align: center;
+  background-image: url("/img/woodbackground.jpg");
+}

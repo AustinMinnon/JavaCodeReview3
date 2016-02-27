@@ -1,9 +1,9 @@
 <h1>Available Stylists:</h1>
 
 #foreach($stylist in $stylists)
-<h4><a href="/$stylist.getId()">$stylist.getName()</a>
+<h4><a href="/$stylist.getId()">$stylist.getName()</a></br>
   <form action="/delete/stylist/$stylist.getId()" method="post">
-    <button type="submit" id="$stylist.getId()" name="deleteStylist" class="btn btn-danger">Delete Stylist</button>
+    <button type="submit" id="$stylist.getId()" name="deleteStylist" class="btn btn-danger btn-xs">Delete Stylist</button>
 </h4>
   </form>
   #end
